@@ -152,10 +152,33 @@ class NetWorthPage extends StatefulWidget {
   _NetWorthPageState createState() => _NetWorthPageState();
 }
 
-class _NetWorthPageState extends State<NetWorthPage> {
+class _NetWorthPageState extends State<NetWorthPage>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
-    
+    vsync: this,
+    duration: const Duration(milliseconds: 1500),
   );
+
+  late final Animation<int> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animation = IntTween(begin: 0, end: widget.amount).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
