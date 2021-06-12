@@ -43,9 +43,37 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var assetAmount = 0;
+  var liabilitiesAmount = 0;
+
+  void setAssetAmount(int asset) {
+    setState(() {
+      assetAmount = asset;
+    });
+  }
+
+  void setLiabilitiestAmount(int liability) {
+    setState(() {
+      liabilitiesAmount = liability;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 48,
+                ),
+                Text('A new networth application'),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
