@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -180,6 +181,12 @@ class _NumberInputDialogState extends State<NumberInputDialog> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final outlineInputBorder = OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Colors.grey.shade600,
+        width: 1,
+      ),
+    );
     return Dialog(
       backgroundColor: Colors.white,
       child: Container(
@@ -191,7 +198,30 @@ class _NumberInputDialogState extends State<NumberInputDialog> {
             Text(
               widget.title,
               style: Theme.of(context).accentTextTheme.headline6,
-            )
+            ),
+            SizedBox(height: 24),
+            TextField(
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              autofocus: true,
+              decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                labelStyle: TextStyle(color: Colors.grey.shade600),
+                focusedBorder: outlineInputBorder,
+                enabledBorder: outlineInputBorder,
+                labelText: 'Write amount',
+              ),
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).cardColor,
+                padding: EdgeInsets.symmetric(horizontal: 56),
+              ),
+              onPressed: () {},
+              child: Text('Done'),
+            ),
           ],
         ),
       ),
