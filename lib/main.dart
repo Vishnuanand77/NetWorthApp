@@ -1,5 +1,3 @@
-import 'dart:html' as html;
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -114,8 +112,13 @@ class AmountCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      
+      height: 148,
+      width: size.width * 0.8,
+      child: Card(
+
+      ),
     );
   }
 }
