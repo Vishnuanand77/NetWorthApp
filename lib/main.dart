@@ -79,7 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 AmountCard(
                   title: 'Assets',
                   amount: assetAmount,
-                  onTap: () {},
+                  onTap: () => showDialog(
+                    context: context,
+                    builder: (context) {
+                      return NumberInputDialog(
+                        onTap: setAssetAmount,
+                        title: 'Assets',
+                        amount: assetAmount,
+                      );
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: 16,
@@ -87,7 +96,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 AmountCard(
                   title: 'Liabilities',
                   amount: liabilitiesAmount,
-                  onTap: () {},
+                  onTap: () => showDialog(
+                    context: context,
+                    builder: (context) {
+                      return NumberInputDialog(
+                        onTap: setLiabilitiestAmount,
+                        title: 'Liabilities',
+                        amount: liabilitiesAmount,
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -139,5 +157,28 @@ class AmountCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class NumberInputDialog extends StatefulWidget {
+  const NumberInputDialog({
+    Key? key,
+    required this.onTap,
+    required this.title,
+    required this.amount,
+  }) : super(key: key);
+
+  final Function(int) onTap;
+  final String title;
+  final int amount;
+
+  @override
+  _NumberInputDialogState createState() => _NumberInputDialogState();
+}
+
+class _NumberInputDialogState extends State<NumberInputDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Dialog();
   }
 }
