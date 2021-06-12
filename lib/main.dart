@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 48,
                 ),
                 Text(
-                  'A new networth application',
+                  'Net Worth Calculator',
                   style: theme.textTheme.headline5,
                 ),
                 SizedBox(
