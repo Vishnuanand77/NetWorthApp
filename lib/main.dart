@@ -117,7 +117,26 @@ class AmountCard extends StatelessWidget {
       height: 148,
       width: size.width * 0.8,
       child: Card(
-
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                amount.toString(),
+                style: Theme.of(context).textTheme.headline6,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
