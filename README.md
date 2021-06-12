@@ -30,11 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Vishnuanand77/NetWorthApp.git">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Net Worth Calculator</h3>
+  <h1 align="center">Net Worth Calculator</h1>
 
   <p align="center">
     Calculate your networth on tap of a button!
