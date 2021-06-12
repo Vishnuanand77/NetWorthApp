@@ -108,6 +108,28 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                 ),
+                SizedBox(height: 100),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => NetWorthPage(),
+                      fullscreenDialog: true,
+                    ),
+                  ),
+                  child: Text(
+                    'Calculate',
+                    style: Theme.of(context).textTheme.button!.copyWith(
+                          color: Colors.grey.shade800,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                SizedBox(
+                  height: 48,
+                ),
               ],
             ),
           ),
