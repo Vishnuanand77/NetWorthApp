@@ -153,9 +153,34 @@ class NetWorthPage extends StatefulWidget {
 }
 
 class _NetWorthPageState extends State<NetWorthPage> {
+  late final AnimationController _animationController = AnimationController(
+    
+  );
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ValueListenableBuilder<int>(
+              valueListenable: _animation,
+              builder: (context, value, child) {
+                return Text(
+                  'Your total net worth is : $value',
+                  style: Theme.of(context).textTheme.headline5,
+                  textAlign: TextAlign.center,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
