@@ -1,3 +1,5 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -59,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -68,12 +71,51 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: 48,
                 ),
-                Text('A new networth application'),
+                Text(
+                  'A new networth application',
+                  style: theme.textTheme.headline5,
+                ),
+                SizedBox(
+                  height: 102,
+                ),
+                AmountCard(
+                  title: 'Assets',
+                  amount: assetAmount,
+                  onTap: () {},
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                AmountCard(
+                  title: 'Liabilities',
+                  amount: liabilitiesAmount,
+                  onTap: () {},
+                ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class AmountCard extends StatelessWidget {
+  const AmountCard({
+    Key? key,
+    required this.title,
+    required this.amount,
+    this.onTap,
+  }) : super(key: key);
+
+  final String title;
+  final int amount;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
