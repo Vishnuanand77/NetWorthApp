@@ -178,6 +178,22 @@ class NumberInputDialog extends StatefulWidget {
 }
 
 class _NumberInputDialogState extends State<NumberInputDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(
+      text: widget.amount == 0 ? '' : widget.amount.toString(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -201,8 +217,10 @@ class _NumberInputDialogState extends State<NumberInputDialog> {
             ),
             SizedBox(height: 24),
             TextField(
+              controller: _controller,
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              style: TextStyle(color: Colors.grey.shade900),
               autofocus: true,
               decoration: InputDecoration(
                 contentPadding:
@@ -219,8 +237,16 @@ class _NumberInputDialogState extends State<NumberInputDialog> {
                 primary: Theme.of(context).cardColor,
                 padding: EdgeInsets.symmetric(horizontal: 56),
               ),
-              onPressed: () {},
-              child: Text('Done'),
+              onPressed: () {
+                widget.onTap(int.parse(_controller.text));
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Done',
+                style: Theme.of(context).textTheme.button!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
           ],
         ),
