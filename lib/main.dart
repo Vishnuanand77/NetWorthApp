@@ -179,6 +179,22 @@ class NumberInputDialog extends StatefulWidget {
 class _NumberInputDialogState extends State<NumberInputDialog> {
   @override
   Widget build(BuildContext context) {
-    return Dialog();
+    final size = MediaQuery.of(context).size;
+    return Dialog(
+      backgroundColor: Colors.white,
+      child: Container(
+        padding: EdgeInsets.all(20),
+        width: size.width * 0.7,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              widget.title,
+              style: Theme.of(context).accentTextTheme.headline6,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
