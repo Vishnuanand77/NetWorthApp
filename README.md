@@ -87,8 +87,9 @@ See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Vishnu Anand - <br>
+<p> 
+<h2>Vishnu Anand</h2>
+</p>
     Twitter : [@vishnuanand2000](https://twitter.com/vishnuanand2000) <br>
     Instagram : [@yesvisnu](https://www.instagram.com/yesvisnu/) <br>
     Email : vishnuanand2000@gmail.com
