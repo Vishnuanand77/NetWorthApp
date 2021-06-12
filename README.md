@@ -106,7 +106,7 @@ To run this application, you need the latest version of flutter
 <!-- USAGE EXAMPLES -->
 ## Usage
 <p align = "center">
-<img src="images/AppConcept.gif" width = 180 height = 320>
+<img src="images/AppConcept.gif" width = 270 height = 480>
 
 
 ## License
