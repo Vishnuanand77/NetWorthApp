@@ -115,7 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => NetWorthPage(),
+                      builder: (context) =>
+                          NetWorthPage(amount: assetAmount - liabilitiesAmount),
                       fullscreenDialog: true,
                     ),
                   ),
@@ -136,6 +137,25 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class NetWorthPage extends StatefulWidget {
+  const NetWorthPage({
+    Key? key,
+    required this.amount,
+  }) : super(key: key);
+
+  final amount;
+
+  @override
+  _NetWorthPageState createState() => _NetWorthPageState();
+}
+
+class _NetWorthPageState extends State<NetWorthPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 
